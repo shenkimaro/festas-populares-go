@@ -2,11 +2,11 @@
 // Cores do tema baseadas em eventos culturais goianos
 
 :root {
-  --color-primary: #C41E3A;      // Vermelho vibrante (tradição e energia)
-  --color-secondary: #FFD700;    // Ouro (celebração e alegria)
-  --color-accent: #8B4513;       // Marrom (terra e autenticidade)
-  --color-dark: #2C3E50;         // Azul escuro
-  --color-light: #ECF0F1;        // Cinza claro
+  --color-primary: #c41e3a; // Vermelho vibrante (tradição e energia)
+  --color-secondary: #ffd700; // Ouro (celebração e alegria)
+  --color-accent: #8b4513; // Marrom (terra e autenticidade)
+  --color-dark: #2c3e50; // Azul escuro
+  --color-light: #ecf0f1; // Cinza claro
 }
 
 * {
@@ -18,15 +18,35 @@
 html,
 body {
   font-family: 'Roboto', sans-serif;
-  color: #2C3E50;
-  background: linear-gradient(135deg, #FFFFFF 0%, #FFF8DC 50%, #F5E6D3 100%);
+  color: #2c3e50;
+  background-image: url('/background.jpg');
   background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   line-height: 1.6;
   min-height: 100vh;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    pointer-events: none;
+    z-index: -1;
+  }
 }
 
 // Tipografia
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   color: var(--color-primary);
   margin-bottom: 1rem;
@@ -34,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3.5rem;
-  
+
   @media (max-width: 768px) {
     font-size: 2rem;
   }
@@ -42,7 +62,7 @@ h1 {
 
 h2 {
   font-size: 2.5rem;
-  
+
   @media (max-width: 768px) {
     font-size: 1.75rem;
   }
@@ -51,7 +71,7 @@ h2 {
 p {
   color: #555555;
   margin-bottom: 1rem;
-  
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -61,7 +81,7 @@ a {
   color: var(--color-primary);
   text-decoration: none;
   transition: all 0.3s ease;
-  
+
   &:hover {
     color: var(--color-secondary);
     text-decoration: underline;
@@ -76,12 +96,12 @@ section {
 
 // Cards e containers
 .card-container {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   transition: all 0.3s ease;
-  
+
   &:hover {
     box-shadow: 0 4px 16px rgba(196, 30, 58, 0.15);
     transform: translateY(-4px);
@@ -90,11 +110,15 @@ section {
 
 // Gradients
 .gradient-primary-secondary {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
 }
 
 .gradient-dark {
-  background: linear-gradient(135deg, var(--color-dark) 0%, #34495E 100%);
+  background: linear-gradient(135deg, var(--color-dark) 0%, #34495e 100%);
 }
 
 // Botões customizados
@@ -105,23 +129,23 @@ section {
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;
-  
+
   &.btn-primary {
     background-color: var(--color-primary);
-    color: #FFFFFF;
-    
+    color: #ffffff;
+
     &:hover {
-      background-color: #A01830;
+      background-color: #a01830;
       transform: scale(1.05);
     }
   }
-  
+
   &.btn-secondary {
     background-color: var(--color-secondary);
-    color: #2C3E50;
-    
+    color: #2c3e50;
+
     &:hover {
-      background-color: #FFD700;
+      background-color: #ffd700;
       filter: brightness(0.9);
     }
   }
@@ -132,7 +156,7 @@ section {
   section {
     padding: 1.5rem;
   }
-  
+
   .card-container {
     padding: 1.5rem;
   }
@@ -197,7 +221,7 @@ section {
 ::-webkit-scrollbar-thumb {
   background: var(--color-primary);
   border-radius: 5px;
-  
+
   &:hover {
     background: var(--color-secondary);
   }
@@ -209,7 +233,7 @@ section {
     margin: 0;
     padding: 0;
   }
-  
+
   .no-print {
     display: none !important;
   }
@@ -217,12 +241,16 @@ section {
 
 // Header temático
 .q-header {
-  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-dark) 100%) !important;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-dark) 100%
+  ) !important;
   box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3) !important;
 }
 
 .q-toolbar {
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .q-toolbar-title {
@@ -248,17 +276,17 @@ section {
 
 // Page container com tema
 .q-page-container {
-  background: linear-gradient(135deg, #FFFFFF 0%, #FFF8DC 50%, #F5E6D3 100%);
+  background: transparent;
   min-height: 100vh;
 }
 
 // Drawer
 .q-drawer {
-  background-color: #FAFAFA !important;
+  background-color: #ffffff !important;
 }
 
 .q-item {
-  color: #2C3E50;
+  color: #2c3e50;
 }
 
 .q-item-label--header {
