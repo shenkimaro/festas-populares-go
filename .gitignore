@@ -1,0 +1,45 @@
+node_modules/
+dist/
+.git/
+.idea/
+.vscode/
+*.log
+.DS_Store
+.env.local
+.env.*.local
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables
+.env
+.env.test
+.env.production
+
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Build output
+/dist
+/build
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
