@@ -52,13 +52,12 @@ jobs:
         run: |
           sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "echo Connected"
 
-      - name: Deploy to server via rsync
+      - name: Deploy to server via tar over SSH
         env:
           SERVER_USER: ${{ secrets.SERVER_USER }}
           SERVER_HOST: ${{ secrets.SERVER_HOST }}
           SERVER_PATH: ${{ secrets.SERVER_PATH }}
           SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
         run: |
-          sshpass -p $SSH_PASSWORD rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
-          container \
-          $SERVER_USER@$SERVER_HOST:$SERVER_PATH
+          sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no "$SERVER_USER@$SERVER_HOST" "mkdir -p '$SERVER_PATH' && rm -rf '$SERVER_PATH/container'"
+          tar -czf - container | sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no "$SERVER_USER@$SERVER_HOST" "tar -xzf - -C '$SERVER_PATH'"
