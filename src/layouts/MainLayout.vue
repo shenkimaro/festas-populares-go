@@ -1,6 +1,6 @@
 <template>
   <!-- Desktop Layout -->
-  <q-layout view="hHh lpR fFf" class="bg-white">
+  <q-layout view="hHh lpR fFf">
     <!-- Desktop Header com Menu Horizontal -->
     <q-header elevated class="header-desktop gt-sm">
       <q-toolbar>
@@ -65,7 +65,6 @@
     <!-- Drawer Mobile -->
     <q-drawer
       v-model="leftDrawerOpen"
-      show-if-above
       bordered
       class="lt-md"
       elevated

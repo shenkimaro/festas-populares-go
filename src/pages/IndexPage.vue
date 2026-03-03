@@ -205,7 +205,8 @@ const festas = ref([
 
 .about-section {
   padding: 4rem 2rem;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(10px);
 
   .container {
     max-width: 1200px;
@@ -237,7 +238,8 @@ const festas = ref([
 
 .festas-section {
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #fff8dc 0%, #f5e6d3 100%);
+  background: rgba(255, 248, 220, 0.85);
+  backdrop-filter: blur(10px);
 
   .container {
     max-width: 1200px;
