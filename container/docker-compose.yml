@@ -1,0 +1,43 @@
+networks:
+  rede_app_festas:
+    driver: bridge
+services:
+  # Apache Web Server
+  apache:
+    image: httpd:2.4
+    container_name: apache-webserver
+    restart: unless-stopped
+    networks:
+      - rede_app_festas
+    ports:
+      - '8080:80'
+      - '8443:443'
+    volumes:
+      - ./apache/site.conf:/usr/local/apache2/conf/httpd.conf:Z
+      - ./apache/vhosts:/usr/local/apache2/conf/vhosts:Z
+      - ./htdocs/:/usr/local/apache2/htdocs/:Z
+      # # Volumes para certificados SSL
+      # - ../certbot/conf:/etc/letsencrypt:Z
+      # - ../certbot/www:/var/www/certbot:Z
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
+
+  # Certbot para SSL
+  # certbot:
+  #   image: certbot/certbot
+  #   container_name: certbot-ssl
+  #   networks:
+  #     - rede_app_festas
+  #   volumes:
+  #     - ../certbot/conf:/etc/letsencrypt:Z
+  #     - ../certbot/www:/var/www/certbot:Z
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-size: "5m"
+  #       max-file: "2"
+  # restart: unless-stopped
+  # command: sleep infinity

@@ -1,0 +1,1 @@
+sudo rsync -avz --progress --exclude='.git' container/ root@191.252.119.225:/home/pasta/
