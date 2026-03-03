@@ -1,7 +1,7 @@
 <template>
   <q-page class="contato-page">
     <!-- Contato Section -->
-    <section class="contact-section gradient-primary-secondary">
+    <section class="contact-section">
       <div class="container">
         <h2>Fique Conectado</h2>
         <p>
@@ -10,78 +10,18 @@
         </p>
 
         <!-- Contact Form -->
-        <q-form class="contact-form" @submit.prevent="submitForm">
-          <div class="form-grid">
-            <q-input
-              v-model="form.name"
-              class="form-field"
-              filled
-              dense
-              label="Nome completo"
-              type="text"
-              lazy-rules
-              :rules="[
-                (val) => (val && val.length > 0) || 'Nome é obrigatório',
-              ]"
-            />
-
-            <q-input
-              v-model="form.email"
-              class="form-field"
-              filled
-              dense
-              label="Email"
-              type="email"
-              lazy-rules
-              :rules="[
-                (val) => (val && val.length > 0) || 'Email é obrigatório',
-                (val) => /^[^@]+@[^@]+\.[^@]+$/.test(val) || 'Email inválido',
-              ]"
-            />
-          </div>
-
-          <q-input
-            v-model="form.message"
-            class="form-field"
-            filled
-            dense
-            label="Mensagem"
-            type="textarea"
-            rows="6"
-            lazy-rules
-            :rules="[
-              (val) => (val && val.length > 0) || 'Mensagem é obrigatória',
-            ]"
-          />
-
-          <div class="form-actions">
-            <q-btn
-              type="submit"
-              label="Enviar Mensagem"
-              color="secondary"
-              size="lg"
-              class="btn-submit"
-            />
-          </div>
-        </q-form>
 
         <!-- Contact Info -->
         <div class="contact-info q-mt-xl">
           <h3>Conecte-se com a gente</h3>
           <div class="info-grid">
             <div class="info-item">
-              <q-icon name="email" size="lg" color="secondary" />
-              <p>contato@festasdeoias.com.br</p>
-            </div>
-
-            <div class="info-item">
-              <q-icon name="phone" size="lg" color="secondary" />
-              <p>(62) 3000-0000</p>
-            </div>
-
-            <div class="info-item">
-              <q-icon name="location_on" size="lg" color="secondary" />
-              <p>Goiás, Brasil</p>
+              <q-icon name="email" size="lg" class="info-icon" />
+              <p>
+                <a href="mailto:festaspopulares@ueg.br"
+                  >festaspopulares@ueg.br</a
+                >
+              </p>
             </div>
           </div>
         </div>
@@ -89,35 +29,6 @@
     </section>
   </q-page>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-
-import { useQuasar } from 'quasar'
-
-const $q = useQuasar()
-
-const form = ref({
-  name: '',
-  email: '',
-  message: '',
-})
-
-function submitForm() {
-  $q.notify({
-    type: 'positive',
-    message: 'Mensagem enviada com sucesso!',
-    position: 'top',
-  })
-
-  // Reset form
-  form.value = {
-    name: '',
-    email: '',
-    message: '',
-  }
-}
-</script>
 
 <style scoped lang="scss">
 .contato-page {
@@ -127,7 +38,7 @@ function submitForm() {
 .contact-section {
   padding: 4rem 2rem;
   text-align: center;
-  color: white;
+  color: var(--color-dark);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -136,15 +47,23 @@ function submitForm() {
     max-width: 600px;
     margin: 0 auto;
     width: 100%;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(44, 62, 80, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(8px);
+    padding: 2rem;
 
     h2 {
-      color: white;
+      color: var(--color-primary);
       margin-bottom: 1rem;
       font-size: 2.5rem;
+      line-height: 1.2;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
     }
 
     p {
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(44, 62, 80, 0.9);
       font-size: 1.1rem;
       margin-bottom: 2rem;
     }
@@ -169,22 +88,6 @@ function submitForm() {
   .form-field {
     margin-bottom: 1rem;
   }
-
-  :deep(.q-field__control) {
-    color: white;
-
-    &::placeholder {
-      color: rgba(255, 255, 255, 0.6);
-    }
-  }
-
-  :deep(.q-field__label) {
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  :deep(.q-field--filled .q-field__control) {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
 }
 
 .form-actions {
@@ -198,7 +101,7 @@ function submitForm() {
 
 .contact-info {
   h3 {
-    color: white;
+    color: var(--color-accent);
     font-size: 1.5rem;
     margin-bottom: 2rem;
   }
@@ -211,16 +114,34 @@ function submitForm() {
   }
 
   .info-item {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(196, 30, 58, 0.18);
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(44, 62, 80, 0.12);
     backdrop-filter: blur(10px);
 
     p {
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(44, 62, 80, 0.95);
       margin-top: 1rem;
       font-size: 1rem;
+      margin-bottom: 0;
     }
+
+    a {
+      color: var(--color-primary);
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        color: #a01830;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .info-icon {
+    color: var(--color-primary);
   }
 }
 
@@ -234,8 +155,14 @@ function submitForm() {
     padding: 2rem 1rem;
 
     .container {
+      padding: 1.5rem;
+
       h2 {
         font-size: 1.75rem;
+      }
+
+      p {
+        font-size: 1rem;
       }
     }
   }

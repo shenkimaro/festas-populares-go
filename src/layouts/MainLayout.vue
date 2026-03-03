@@ -106,22 +106,34 @@ interface MenuLink {
 
 const linksList: MenuLink[] = [
   {
-    title: 'Home',
-    caption: 'Página inicial',
+    title: 'Início',
+    caption: 'Sobre o projeto',
     icon: 'home',
     link: '/',
   },
   {
-    title: 'Sobre',
-    caption: 'Conheça as festas',
-    icon: 'info',
-    link: '/sobre',
+    title: 'Objetivos',
+    caption: 'Metas do projeto',
+    icon: 'flag',
+    link: '/objetivos',
   },
   {
-    title: 'Festas',
-    caption: 'Lista de celebrações',
+    title: 'Categoria de Festas',
+    caption: 'Tipos de celebrações',
     icon: 'celebration',
-    link: '/festas',
+    link: '/categorias',
+  },
+  {
+    title: 'Equipe',
+    caption: 'Quem faz o projeto',
+    icon: 'groups',
+    link: '/equipe',
+  },
+  {
+    title: 'Mapa',
+    caption: 'Visualização geográfica',
+    icon: 'map',
+    link: '/mapa',
   },
   {
     title: 'Contato',

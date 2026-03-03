@@ -1,24 +1,54 @@
 <template>
   <q-page class="index-page">
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-content animate-fadeInUp">
-        <h1>Festas Populares de Goiás</h1>
-        <p class="subtitle">Celebrações Culturais que Marcam Gerações</p>
-        <q-btn
-          color="secondary"
-          size="lg"
-          label="Explorar Festas"
-          to="/festas"
-          class="btn-custom btn-primary"
-        />
+    <section class="about-section">
+      <div class="container">
+        <h1>Sobre o Projeto</h1>
+        <p class="section-description">
+          O projeto Festas Populares de Goiás tem como propósito valorizar,
+          organizar e dar visibilidade às celebrações culturais do estado,
+          reunindo informações de forma acessível para a comunidade.
+        </p>
+
+        <div class="cards-grid">
+          <div class="card-container animate-slideInLeft">
+            <h3>🎉 Tradição</h3>
+            <p>
+              Registro e valorização das manifestações populares que preservam a
+              identidade cultural goiana.
+            </p>
+          </div>
+
+          <div class="card-container animate-slideInRight">
+            <h3>🗂️ Organização</h3>
+            <p>
+              Estruturação das informações por categorias para facilitar busca,
+              consulta e divulgação.
+            </p>
+          </div>
+
+          <div class="card-container animate-slideInLeft">
+            <h3>📍 Territorialidade</h3>
+            <p>
+              Conexão entre festas, municípios e regiões para ampliar o
+              conhecimento sobre a cultura local.
+            </p>
+          </div>
+
+          <div class="card-container animate-slideInRight">
+            <h3>🤝 Comunidade</h3>
+            <p>
+              Fortalecimento do vínculo entre pesquisadores, população e
+              organizadores das festividades.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   </q-page>
 </template>
 
 <script setup lang="ts">
-// Home Page - Hero Section
+// Home Page - Sobre o Projeto
 </script>
 
 <style scoped lang="scss">
@@ -26,72 +56,58 @@
   padding: 0;
 }
 
-.hero-section {
-  padding: 8rem 2rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.about-section {
+  padding: 4rem 2rem;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  backdrop-filter: blur(10px);
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 400px;
-    height: 400px;
-    background: rgba(255, 215, 0, 0.1);
-    border-radius: 50%;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
+  .container {
+    max-width: 1200px;
     margin: 0 auto;
 
     h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-
-      @media (max-width: 768px) {
-        font-size: 2rem;
-      }
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--color-primary);
+      font-size: 3rem;
     }
 
-    .subtitle {
-      color: #26a69a;
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-
-      @media (max-width: 768px) {
-        font-size: 1rem;
-      }
+    .section-description {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      color: #3a4a5a;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
     }
-  }
-}
 
-.btn-custom {
-  transition: all 0.3s ease;
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
 
-  &.btn-primary {
-    background-color: var(--color-primary);
-    color: #ffffff;
-
-    &:hover {
-      background-color: #a01830;
-      transform: scale(1.05);
+      .card-container h3 {
+        font-size: 1.2rem;
+        line-height: 1.25;
+        margin-bottom: 0.75rem;
+      }
     }
   }
 }
 
 @media (max-width: 768px) {
-  .hero-section {
-    padding: 4rem 1rem;
+  .about-section {
+    padding: 2rem 1rem;
+
+    .container h1 {
+      font-size: 2rem;
+    }
+
+    .cards-grid .card-container h3 {
+      font-size: 1.05rem;
+    }
   }
 }
 </style>

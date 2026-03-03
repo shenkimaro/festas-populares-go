@@ -3,9 +3,10 @@
     <!-- Festas Featured -->
     <section class="festas-section">
       <div class="container">
-        <h2>Principais Celebrações</h2>
+        <h2>Categoria de Festas</h2>
         <p class="section-description">
-          Conheça as principais festas populares que movem Goiás ao longo do ano
+          Explore as principais categorias das manifestações festivas populares
+          em Goiás
         </p>
         <div class="festas-list">
           <event-card
@@ -30,51 +31,51 @@ import EventCard from 'components/EventCard.vue'
 const festas = ref([
   {
     id: 1,
-    title: 'Festa de São Jorge',
+    title: 'Festas Religiosas',
     description:
-      'Celebração do padroeiro com procissões, missas e festividades populares.',
-    date: 'Abril',
-    location: 'Várias cidades de Goiás',
+      'Celebrações ligadas à fé e devoção popular, com procissões, novenas e rituais tradicionais.',
+    date: 'Ano todo',
+    location: 'Diversos municípios',
   },
   {
     id: 2,
-    title: 'Festa de Nossa Senhora Aparecida',
+    title: 'Festas Juninas',
     description:
-      'Devoção à padroeira do Brasil com celebrações religiosas e culturais.',
-    date: 'Outubro',
-    location: 'Todo o estado',
+      'Comemorações com quadrilhas, comidas típicas, música regional e forte participação comunitária.',
+    date: 'Junho e Julho',
+    location: 'Bairros e comunidades',
   },
   {
     id: 3,
-    title: 'Festas Juninas',
+    title: 'Festas do Divino e Folias',
     description:
-      'Tradicionais festas juninas com quadrilhas, comidas típicas e danças.',
-    date: 'Junho',
-    location: 'Várias comunidades',
+      'Tradições com cortejos, cantorias e visitas festivas que preservam práticas culturais seculares.',
+    date: 'Calendário local',
+    location: 'Regiões urbanas e rurais',
   },
   {
     id: 4,
-    title: 'Festa de Nossa Senhora do Rosário',
+    title: 'Cavalhadas e Encenações',
     description:
-      'Celebração centenária com procissões e manifestações culturais.',
-    date: 'Outubro',
-    location: 'Várias regiões',
+      'Apresentações tradicionais com forte simbolismo histórico-cultural e participação de grupos locais.',
+    date: 'Maio a Junho',
+    location: 'Cidades históricas',
   },
   {
     id: 5,
-    title: 'Bumba Meu Boi',
+    title: 'Festas de Padroeiros',
     description:
-      'Manifestação cultural que mistura dança, música e teatro popular.',
-    date: 'Junho a Julho',
-    location: 'Norte de Goiás',
+      'Celebrações ligadas aos santos padroeiros, unindo dimensão religiosa e atividades culturais.',
+    date: 'Conforme município',
+    location: 'Paróquias e comunidades',
   },
   {
     id: 6,
-    title: 'Cavalhadas',
+    title: 'Festas Culturais Locais',
     description:
-      'Dramatização tradicional de origem medieval com cavaleiros e músicos.',
-    date: 'Maio a Junho',
-    location: 'Pirenópolis e região',
+      'Eventos que valorizam música, dança, culinária e saberes populares de cada território.',
+    date: 'Calendário regional',
+    location: 'Todo o estado',
   },
 ])
 </script>
