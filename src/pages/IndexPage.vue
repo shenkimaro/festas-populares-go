@@ -27,8 +27,6 @@
 }
 
 .hero-section {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #8b4513 100%);
-  color: white;
   padding: 8rem 2rem;
   text-align: center;
   position: relative;
@@ -56,7 +54,6 @@
     margin: 0 auto;
 
     h1 {
-      color: white;
       font-size: 3.5rem;
       margin-bottom: 1rem;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -67,7 +64,7 @@
     }
 
     .subtitle {
-      color: var(--color-secondary);
+      color: #26a69a;
       font-size: 1.5rem;
       margin-bottom: 2rem;
 
