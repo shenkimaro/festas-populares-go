@@ -30,8 +30,6 @@
             @click="handleNavigation(link.link)"
           />
         </div>
-
-
       </q-toolbar>
     </q-header>
 

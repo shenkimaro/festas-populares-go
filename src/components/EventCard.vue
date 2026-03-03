@@ -67,9 +67,12 @@ withDefaults(defineProps<Props>(), {
   }
 
   &__title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   &__description {
@@ -88,6 +91,12 @@ withDefaults(defineProps<Props>(), {
     align-items: center;
     color: #666;
     font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    &__title {
+      font-size: 1.1rem;
+    }
   }
 }
 </style>
