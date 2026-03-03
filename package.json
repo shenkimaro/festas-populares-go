@@ -1,9 +1,9 @@
 {
   "name": "festas-populares-goias",
   "version": "0.0.1",
-  "description": "A Quasar Project",
-  "productName": "Quasar App",
-  "author": "shenkimaro <ibanez.almeida@gmail.com>",
+  "description": "Site sobre as festas populares de Goiás",
+  "productName": "Festas Populares de Goiás",
+  "author": "Grape Software",
   "type": "module",
   "private": true,
   "scripts": {
