@@ -25,7 +25,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd quasar_source/
           npm install
 
       - name: Build project SPA
