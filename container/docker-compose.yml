@@ -4,7 +4,7 @@ networks:
 services:
   # Apache Web Server
   apache:
-    image: httpd:2.4
+    image: docker.io/library/httpd:2.4
     container_name: apache-webserver
     restart: unless-stopped
     networks:
