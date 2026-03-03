@@ -1,0 +1,65 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build-and-deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install Quasar CLI
+        run: npm install -g @quasar/cli
+
+      - name: Install dependencies
+        run: |
+          cd quasar_source/
+          npm install
+
+      - name: Build project SPA
+        run: |
+          quasar build
+
+      - name: Verify environment variables
+        env:
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          SERVER_PATH: ${{ secrets.SERVER_PATH }}
+        run: |
+          echo "Server User: $SERVER_USER"
+          echo "Server Host: $SERVER_HOST"
+          echo "Server Path: $SERVER_PATH"
+
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
+
+      - name: Test SSH connectivity
+        env:
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+        run: |
+          sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_HOST "echo Connected"
+
+      - name: Deploy to server via rsync
+        env:
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          SERVER_PATH: ${{ secrets.SERVER_PATH }}
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+        run: |
+          sshpass -p $SSH_PASSWORD rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
+          container \
+          $SERVER_USER@$SERVER_HOST:$SERVER_PATH
