@@ -86,7 +86,6 @@ const festas = ref([
 
 .festas-section {
   padding: 4rem 2rem;
-  background: rgba(255, 248, 220, 0.85);
   backdrop-filter: blur(10px);
   min-height: 100vh;
 
@@ -109,7 +108,7 @@ const festas = ref([
 
     .festas-list {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 2rem;
     }
   }
@@ -123,6 +122,18 @@ const festas = ref([
 @media (max-width: 768px) {
   .festas-section {
     padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .festas-section .container .festas-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .festas-section .container .festas-list {
+    grid-template-columns: 1fr;
   }
 }
 </style>
