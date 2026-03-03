@@ -63,12 +63,7 @@
     </q-header>
 
     <!-- Drawer Mobile -->
-    <q-drawer
-      v-model="leftDrawerOpen"
-      bordered
-      class="lt-md"
-      elevated
-    >
+    <q-drawer v-model="leftDrawerOpen" bordered class="lt-md" elevated>
       <q-list>
         <q-item-label header class="text-primary text-weight-bold"
           >Navegação</q-item-label

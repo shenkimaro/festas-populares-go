@@ -205,7 +205,7 @@ const festas = ref([
 
 .about-section {
   padding: 4rem 2rem;
-  background-color: rgba(255, 255, 255, 0.90);
+  background-color: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
 
   .container {
