@@ -31,8 +31,7 @@
           />
         </div>
 
-        <q-separator vertical class="q-mx-md" />
-        <div class="text-weight-bold">v{{ $q.version }}</div>
+
       </q-toolbar>
     </q-header>
 
@@ -96,6 +95,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 interface MenuLink {
   title: string
   caption: string
@@ -114,25 +117,19 @@ const linksList: MenuLink[] = [
     title: 'Sobre',
     caption: 'Conheça as festas',
     icon: 'info',
-    link: '#about',
+    link: '/sobre',
   },
   {
     title: 'Festas',
     caption: 'Lista de celebrações',
     icon: 'celebration',
-    link: '#events',
+    link: '/festas',
   },
   {
     title: 'Contato',
     caption: 'Entre em contato',
     icon: 'mail',
-    link: '#contact',
-  },
-  {
-    title: 'Github',
-    caption: 'Código-fonte',
-    icon: 'code',
-    link: 'https://github.com',
+    link: '/contato',
   },
 ]
 
@@ -145,13 +142,10 @@ function toggleLeftDrawer() {
 function handleNavigation(link: string) {
   leftDrawerOpen.value = false
 
-  if (link.startsWith('#')) {
-    const element = document.querySelector(link)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
+  if (link.startsWith('http')) {
+    window.open(link, '_blank')
   } else {
-    window.location.href = link
+    void router.push(link)
   }
 }
 </script>
