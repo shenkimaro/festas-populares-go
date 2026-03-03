@@ -60,7 +60,6 @@
 
 .about-section {
   padding: 4rem 2rem;
-  background-color: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
 
   .container {
@@ -87,6 +86,15 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
+
+      .card-container h3 {
+        font-size: 1.2rem;
+        line-height: 1.25;
+        margin-bottom: 0.75rem;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
     }
   }
 }
@@ -99,6 +107,10 @@
 @media (max-width: 768px) {
   .about-section {
     padding: 2rem 1rem;
+
+    .cards-grid .card-container h3 {
+      font-size: 1.05rem;
+    }
   }
 }
 </style>
