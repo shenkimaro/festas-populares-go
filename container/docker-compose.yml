@@ -10,8 +10,7 @@ services:
     networks:
       - rede_app_festas
     ports:
-      - '8080:80'
-      - '8443:443'
+      - '8880:80'
     volumes:
       - ./apache/site.conf:/usr/local/apache2/conf/httpd.conf:Z
       - ./apache/vhosts:/usr/local/apache2/conf/vhosts:Z
